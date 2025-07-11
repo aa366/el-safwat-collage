@@ -21,7 +21,7 @@ export default async function RootLayout({
 
     <html lang={locale}>
       <body
-        className={` `}
+        className={`bg-[rgba(0,0,0,.1)] `}
       >
         <NextIntlClientProvider>
         {children}
