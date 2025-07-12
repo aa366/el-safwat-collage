@@ -5,7 +5,7 @@ interface goalsOBJ {
   name: string;
   text: string;
 }
-
+// this component used in about page
 const Goals = () => {
   const goals: goalsOBJ[] = [
     {

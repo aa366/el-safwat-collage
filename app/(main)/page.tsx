@@ -7,7 +7,7 @@ import WhyStudy from "./private-component/whyStudy"
 
 export default function Home() {
   return(
-    <div className="flex flex-col gap-[10vh]">
+    <main className="flex flex-col gap-[10vh]">
         <Banner />
         <Description />
         <Goals />
@@ -15,6 +15,6 @@ export default function Home() {
         <Requirements />
         <WhyStudy />
         
-    </div>
+    </main>
   )
 }
