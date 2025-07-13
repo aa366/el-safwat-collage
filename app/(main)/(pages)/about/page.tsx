@@ -5,7 +5,7 @@ import Us from './private-component/us'
 import Look from './private-component/look'
 const Page = () => {
   return (
-    <main  className="flex flex-col gap-[10vh]">
+    <main  className="flex flex-col gap-[10vh] ">
         <AboutBanner />
         <Statstics />
         < Us/>

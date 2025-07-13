@@ -36,41 +36,41 @@ const Banner = () => {
       </div>
       </div>
 <div className="flex justify-center bg-green-700 ">
-      <div className="  md:static grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  p-3 w-max sm:w-full  bg-green-700   z-15  min-h-3 text-white  capitalize  font-medium md:flex-wrap md:gap-2 place-items-baseline" >
+      <div className="  md:static grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  p-3 w-max sm:w-full  bg-green-700   z-15  min-h-3 text-white  capitalize  font-medium md:flex-wrap md:gap-2 place-items-baseline " >
         {/* FaUserGraduate
    GrGroup
     PiGraduationCapFill
     FaHandshake
     */}
-        <div className="flex  justify-center  items-center gap-1">
+        <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <LiaCalendar className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">5</h3>
                 <h5 className="text-xl">the year founded</h5>
             </div>
             </div>
-        <div className="flex  justify-center  items-center gap-1">
+        <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <FaUserGraduate className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">1000</h3>
                 <h5 className="text-xl">students 2024</h5>
             </div>
             </div>
-        <div className="flex  justify-center  items-center gap-1">
+        <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <GrGroup className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">300</h3>
                 <h5 className="text-xl">staff</h5>
             </div>
             </div>
-        <div className="flex  justify-center  items-center gap-1">
+        <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <PiGraduationCapFill className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">500</h3>
                 <h5 className="text-xl">alummi</h5>
             </div>
             </div>
-        <div className="flex  justify-center items-center gap-1">
+        <div className="flex  justify-center items-center gap-1 lg:w-full">
            <FaHandshake className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">150</h3>

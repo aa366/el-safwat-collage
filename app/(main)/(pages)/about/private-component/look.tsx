@@ -6,7 +6,7 @@ const Look = () => {
     const title = "About University & colleges"
     const para = "The colleges aims to be a pioneer in promoting employment opportunities and sustainable development, excelling in research and innovation by preparing qualified graduates to drive community development. It also offers training and continuing education services for its graduates and others to enhance their competencies and keep pace with scientific and practical advancements."
   return (
-    <section className='flex flex-col md:flex-row p-1 sm:p-4 gap-4 items-center bg-gray-300'>
+    <section className='flex flex-col md:flex-row p-1 sm:p-4 gap-4 items-center bg-gray-300  '>
         <Image
         alt=''
         src={img}
