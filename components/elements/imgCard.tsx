@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface Props {
   link?: string;
@@ -20,7 +21,7 @@ const Card = ({
   textContClass,
 }: Props) => {
   return (
-    <div className={`relative ${contClass}`}>
+    <div className={cn(`relative `,contClass)}>
       {link ? (
         <Link href={link ? link : "/"}>
           <Image
@@ -28,7 +29,8 @@ const Card = ({
             src={img ? img : "/default.webP"}
             width={100}
             height={100}
-            className={`w-full ${imgClass}`}
+            className={ cn("w-full",imgClass)}
+            unoptimized= {true}
           />
         </Link>
       ) : (
@@ -37,14 +39,15 @@ const Card = ({
           src={img ? img : "/default.webP"}
           width={100}
           height={100}
-          className={`w-full ${imgClass}`}
+          className={ cn("w-full",imgClass)}
+           unoptimized= {true}
         />
       )}
 
       <div
-        className={`absolute bottom-0 w-full bg-[rgba(0,0,0,.5)] text-white font-medium  text-center text-xl py-1 ${
+        className={ cn(`absolute bottom-0 w-full bg-[rgba(0,0,0,.5)] text-white font-medium  text-center text-xl py-1 ${
           !text && "hidden"
-        } ${textContClass}`}
+        } `,textContClass)}
       >
         {text}
       </div>
