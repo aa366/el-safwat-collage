@@ -40,9 +40,9 @@ const Footer = () => {
   const img = "/logo.png"
   const tel = "+1 (646) 710-0836"
   const social = [
-{link:  "https://www.facebook.com/"  ,icon: FaFacebookSquare},
-{link:  "https://www.youtube.com/"  ,icon: FaYoutube},
-{link:  "https://x.com/?lang=en"  ,icon: FaSquareXTwitter},
+{link:  "https://www.facebook.com/"  ,icon: FaFacebookSquare,name:"facebook"},
+{link:  "https://www.youtube.com/"  ,icon: FaYoutube,name:"youtube"},
+{link:  "https://x.com/?lang=en"  ,icon: FaSquareXTwitter ,name:"x"},
 
   ]
   return (
@@ -56,6 +56,7 @@ const Footer = () => {
           width={100}
           height={100}
           className='w-full'
+          unoptimized={true}
           />
           <div className='flex md:flex-col justify-between '>
           <a href={`tel:${tel}`} className='flex gap-1 p-2  border-l-1 border-white  items-center text-gray-300 para hover:text-green-800 active:text-green-800'>
@@ -64,8 +65,8 @@ const Footer = () => {
           </a>
 
           <div className='flex gap-1 sm:gap-2 justify-evenly '>
-            {social.map(({link,icon})=>(
-              <a href={link} key={link} className='flex text-gray-300  header  hover:text-green-800 active:text-green-800' target='_blank'>
+            {social.map(({link,icon,name})=>(
+              <a href={link} key={link} className='flex text-gray-300  header  hover:text-green-800 active:text-green-800' target='_blank' aria-label={name}>
                   {React.createElement(icon,{className:""})}
               </a>
             ))}

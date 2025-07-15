@@ -23,7 +23,7 @@ const ClientNav = () => {
     "admission",
     "faculty",
     "institutes",
-    "Research",
+    "research",
     "e-learning",
     "contact",
   ];
