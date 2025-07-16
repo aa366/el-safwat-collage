@@ -1,9 +1,10 @@
 ""
 import React from 'react'
-import { useLocale } from 'next-intl'
+// import { useLocale } from 'next-intl'
 
 const LangToggle = () => {
-    const lang = useLocale()
+    // const lang = useLocale()
+
   return (
    <>
    <select name="language-Switcher" id="languageSwitcher">

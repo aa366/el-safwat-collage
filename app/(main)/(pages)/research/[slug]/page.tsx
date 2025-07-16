@@ -2,9 +2,11 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <div className='h-[50vh] header text-center'>
-      this slug in reseaerch
-    </div>
+    <main className='h-[50vh] '>
+      <div className='header text-center'>
+        this slug in reseaerch
+      </div>
+    </main>
   )
 }
 

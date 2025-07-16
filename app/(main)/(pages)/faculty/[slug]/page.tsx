@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 const Page = () => {
   const router = usePathname()
   const slug = router.split("/")
-  const path = slug[slug.length-1]
+  const path = slug.at(-1)
   return (
     <main className='h-[50vh] flex flex-col gap-4'>
     <h3 className='font-bold header text-center mx-auto  capitalize'>

@@ -205,7 +205,7 @@ const Us = () => {
               </h3>
               <p className="text-gray-600 para">{currentData.description}</p>
               <ul className="flex flex-col gap-1 para list-disc pl-4">
-                {currentData.data.map((thing, idx) => (
+                { currentData.data && currentData.data.map((thing, idx) => (
                   <li key={thing.name + thing.text + idx}>
                     <span className="text-green-800">{thing.name + " : "}</span>
                     {thing.text}
