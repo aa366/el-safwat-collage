@@ -1,5 +1,8 @@
+"use client"
 import React from "react";
 import ClientNav from "./elements/clientNav";
+import Signup from "./sign-up";
+
 const NavBar = () => {
   const tel = "+1 (646) 710-0836";
   const formatTel = "+16467100836";
@@ -27,6 +30,7 @@ const NavBar = () => {
           <button>en</button>
         </div>
       </div>
+      <Signup />
 
       
       <ClientNav />

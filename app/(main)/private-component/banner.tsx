@@ -16,7 +16,7 @@ const Banner = () => {
         <div className="relative">
       <Image
         alt=""
-        src={`/banner.webP`}
+        src={`/banner.jpg`}
         width={1000}
         height={900}
         className="min-h-[300px] w-full"
@@ -37,11 +37,7 @@ const Banner = () => {
       </div>
 <div className="flex justify-center bg-green-700 ">
       <div className="  md:static grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  p-3 w-max sm:w-full  bg-green-700   z-15  min-h-3 text-white  capitalize  font-medium md:flex-wrap md:gap-2 place-items-baseline " >
-        {/* FaUserGraduate
-   GrGroup
-    PiGraduationCapFill
-    FaHandshake
-    */}
+      
         <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <LiaCalendar className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">

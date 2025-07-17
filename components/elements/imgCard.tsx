@@ -26,7 +26,7 @@ const Card = ({
         <Link href={link ? link : "/"}>
           <Image
             alt="img"
-            src={img ? img : "/default.webP"}
+            src={img ? img : "/default.jpg"}
             width={100}
             height={100}
             className={ cn("w-full",imgClass)}
@@ -36,7 +36,7 @@ const Card = ({
       ) : (
         <Image
           alt="img"
-          src={img ? img : "/default.webP"}
+          src={img ? img : "/default.jpg"}
           width={100}
           height={100}
           className={ cn("w-full",imgClass)}

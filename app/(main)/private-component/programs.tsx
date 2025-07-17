@@ -14,37 +14,37 @@ const Programs = () => {
         {
             text:"University Diploma (Associate Degree)",
             link:"/programs/university-diploma",
-            img:"/toWEBP/Diploma.webP",
+            img:"/toWEBP/Diploma.jpg",
 
         },
         {
             text:"Bachelor’s Degree (Higher Diploma)",
             link:"/programs/bachelors-degree",
-            img:"/toWEBP/Bachelor’s.webP",
+            img:"/toWEBP/Bachelor’s.jpg",
 
         },
         {
             text:"Postgraduate Diploma (Specialized Diploma)",
             link:"/programs/postgraduate-diploma",
-            img:"/toWEBP/PostgraduateDiploma.webP",
+            img:"/toWEBP/PostgraduateDiploma.jpg",
 
         },
         {
             text:"Master’s Degree (Advanced Specialized Degree)",
             link:"/programs/masters-degree",
-            img:"/toWEBP/Master.webP",
+            img:"/toWEBP/Master.jpg",
 
         },
         {
             text:"Doctorate Degree (Ph.D.)",
             link:"/programs/doctorate-degree",
-            img:"/toWEBP/Doctorate.webP",
+            img:"/toWEBP/Doctorate.jpg",
 
         },
         {
             text:"Continuing Education Programs",
             link:"/programs/education",
-            img:"/toWEBP/Education.webP",
+            img:"/toWEBP/Education.jpg",
 
         },
     ]

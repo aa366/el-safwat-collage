@@ -14,22 +14,22 @@ const Requirements = () => {
     {
       text: "Hold a valid secondary school certificate.",
       link: "/admission",
-      img: "/toWEBP/Hold.webP",
+      img: "/toWEBP/Hold.jpg",
     },
     {
       text: "Pass the university's entrance exams.",
       link: "/admission",
-      img: "/toWEBP/Pass.webP",
+      img: "/toWEBP/Pass.jpg",
     },
     {
       text: "Meet specific requirements set by the intended college.",
       link: "/admission",
-      img: "/toWEBP/Meet.webP",
+      img: "/toWEBP/Meet.jpg",
     },
     {
       text: "Obtain official approval from the university administration.",
       link: "/admission",
-      img: "/toWEBP/Obtain.webP",
+      img: "/toWEBP/Obtain.jpg",
     },
 
   ];

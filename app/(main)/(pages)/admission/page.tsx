@@ -4,8 +4,8 @@ import Programs from "./private-component/programs";
 import Benefits from "./private-component/benefits";
 
 const Page = () => {
-  const tsrc = "/toWEBP/admission-banner-2.webp";
-  const bsrc = "/toWEBP/admission-head.webp";
+  const tsrc = "/toWEBP/admission-banner-2.jpg";
+  const bsrc = "/toWEBP/admission-head.jpg";
   return (
     <main className="flex flex-col gap-[10vh]">
       <Image

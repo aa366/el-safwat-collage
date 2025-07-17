@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 const Look = () => {
-    const img = "/hall.webP"
+    const img = "/hall.jpg"
     const title = "About University & colleges"
     const para = "The colleges aims to be a pioneer in promoting employment opportunities and sustainable development, excelling in research and innovation by preparing qualified graduates to drive community development. It also offers training and continuing education services for its graduates and others to enhance their competencies and keep pace with scientific and practical advancements."
   return (
@@ -13,6 +13,7 @@ const Look = () => {
         width={100}
         height={100}
         className='w-full  '
+        unoptimized={true}
         />
         <div className='font-medium text-center md:w-full'>
             <h3 className='header'> {title}</h3>

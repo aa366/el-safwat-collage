@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 const AboutBanner = () => {
-    const img = "/hall.webP"
+    const img = "/hall.jpg"
     const paras:string[] = [
         "Safwat Al-Safwa International University is committed to delivering high-quality education across various disciplines. Our mission is to empower individuals through skill development, professional requalification, community engagement, and support for sustainable development. We adopt modern methodologies and tools to meet both local and international standards, keeping pace with the evolving world.",
         "The university focuses on self-directed and collaborative learning, scientific research, training, and lifelong education for graduates and the wider community. Our goal is to enhance human competencies and minimize professional errors that may have serious consequences, ensuring our graduates meet global standards and contribute effectively to sustainable development."
@@ -15,6 +15,7 @@ const AboutBanner = () => {
         src={img}
         className='w-full'
         alt=''
+        unoptimized={true}
         
         />
         <div className='absolute w-full h-full bg-[rgba(0,0,0,.2)] top-0 left-0' />

@@ -2,7 +2,7 @@ import React from 'react'
 import Card from "@/components/elements/imgCard"
 import Asks from './private-component/asks'
 const Page = () => {
-    const img ="/toWEBP/admission-banner-2.webP"
+    const img ="/toWEBP/admission-banner-2.jpg"
     const  text = "Working side by side with undergraduates, our professors encourage students to see with new eyes. Through research, coursework, and casual interactions, students and faculty learn from and challenge each other on a daily basis."
   return (
     <main className='flex flex-col gap-[10vh]'>
