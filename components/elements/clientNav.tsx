@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaBars } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
@@ -14,6 +14,8 @@ import {
   NavigationMenuTrigger,
   // navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { auth } from "@/firebase/config";
+import { onAuthStateChanged, User } from "firebase/auth";
 
 const ClientNav = () => {
   const logo = "/logo.png";
@@ -49,25 +51,25 @@ const ClientNav = () => {
       },
       {
         title: "Faculty of Medicine",
-        href: "/medicine",
+        href: "medicine",
         description:
           "A modal dialog that interrupts the user with important content and expects a response.",
       },
       {
         title: "Faculty of Medical Sciences",
-        href: "/medical-sciences",
+        href: "medical-sciences",
         description:
           "For sighted users to preview content available behind a link.",
       },
       {
         title: "Faculty of Dentistry",
-        href: "/dentistry",
+        href: "dentistry",
         description:
           "For sighted users to preview content available behind a link.",
       },
       {
         title: "Faculty of Engineering",
-        href: "/engineering",
+        href: "engineering",
         description:
           "For sighted users to preview content available behind a link.",
       },
@@ -77,7 +79,7 @@ const ClientNav = () => {
         <NavigationMenu className="">
           <NavigationMenuItem className="">
             <NavigationMenuTrigger
-              className={` hover:bg-inherit  bg-inherit text-lg mdl:text-xl lg:text-[1.3rem] font-medium px-0 ${
+              className={` hover:bg-inherit  bg-inherit text-lg md:text-sm  mdl:text-xl lg:text-[1.3rem] font-medium px-0 ${
                 isActive(text) ? "text-green-800 font-bold" : ""
               } hover:text-inherit`}
             >
@@ -134,7 +136,7 @@ const ClientNav = () => {
 
       {/* Animated mobile menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-black/40 z-500 transition-opacity duration-300 ${
+        className={`fixed top-0 left-0 w-full h-full bg-black/40 z-[500] transition-opacity duration-300 ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -173,7 +175,7 @@ const ClientNav = () => {
       </div>
 
       {/* Desktop menu */}
-      <ul className="hidden md:flex w-auto gap-2 mdl:gap-4 text-lg mdl:text-xl lg:text-[1.3rem] items-center pr-3  font-medium">
+      <ul className="hidden md:flex w-auto gap-2 mdl:gap-3 text-lg md:text-sm mdl:text-xl lg:text-[1.3rem] items-center pr-3  font-medium ">
         {ulItems.map((text) =>
           text === "faculty" ? (
             <Faculty key={text + "rand"} text={text} />
@@ -193,6 +195,43 @@ const ClientNav = () => {
       </ul>
     </div>
   );
+};
+
+export const UserState = () => {
+  const [user,setUser] = useState<User | null>(null)
+
+  useEffect(() => {
+    const unsubscribe  =  onAuthStateChanged(auth, (currentUser) => {
+      
+      
+      setUser(currentUser)
+      
+    
+  });
+    return () => unsubscribe();
+  }, []);
+  
+
+   if (user) {
+      return (
+        <Link href={`/profile/${user.uid}`}>
+          <Image
+            alt="Profile"
+            src={user.photoURL ?? "/default-user.svg"}
+            width={30}
+            height={30}
+            className="w-[3vw] min-w-10 md:min-w-8 rounded-full bg-none text-black border-2 border-green-800 p-1"
+          />
+        </Link>
+      );
+    }
+
+return (
+      <>
+        <button> <Link href={"/sign-up"} className="w-full h-full">  Register </Link></button>
+        <button className="border-x-1 border-gray-600 px-2"><Link href={"/log-in"} className="w-full h-full">  Login </Link></button>
+      </>
+    );
 };
 
 export default ClientNav;

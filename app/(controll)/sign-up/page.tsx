@@ -1,17 +1,25 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import {auth} from "@/firebase/config"
+import { createUserWithEmailAndPassword, getRedirectResult, signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { auth, liteStore } from "@/firebase/config";
+import { collection, addDoc, Timestamp } from "firebase/firestore/lite";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaGoogle } from "react-icons/fa";
-
+import { User } from "@/app/interfaces";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Page = () => {
   const data = {
     msg: {
       title: "welcom to safwat colleage",
       message: "this a good step into you career ",
+      error: "somthing went wrong",
+      ok: "you signed up successfully",
+      login: "do you have account?",
     },
 
     name: {
@@ -53,6 +61,9 @@ const Page = () => {
     or: "or",
   };
   const isRight = false;
+  const router = useRouter();
+  const [error, setError] = useState(false);
+  const [ok, setOk] = useState(false);
 
   const form = useFormik({
     initialValues: {
@@ -71,7 +82,7 @@ const Page = () => {
       email: Yup.string().email().required(data.email.errors.required),
 
       password: Yup.string()
-        .required(data.name.errors.required)
+        .required(data.password.errors.required)
         .min(8, data.password.errors.min)
         .max(32, data.password.errors.max),
 
@@ -80,26 +91,83 @@ const Page = () => {
         .oneOf([Yup.ref("password")], data.rPassword.errors.typical),
     }),
     onSubmit: async (values) => {
-        try {
-            await createUserWithEmailAndPassword(auth , )
-            
-        } catch (error) {
-            
-        }
+      try {
+        await createUserWithEmailAndPassword(
+          auth,
+          values.email,
+          values.password
+        ).then((userCredential) => {
+          const user = userCredential.user;
+
+          const storeData: User = {
+            uid: user.uid,
+            joinAt: Timestamp.now(),
+            name: values.name,
+            role: "student",
+          };
+
+          const collect = collection(liteStore, "users");
+          addDoc(collect, storeData);
+          setOk(true);
+        });
+
+        router.back();
+      } catch (error) {
+        setError(true);
+        console.error(error);
+      }
     },
   });
-  const handleGoogleSignUp = async () =>{
-      
-        
-  }
+  
+
+  const handleGoogleSignUp = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider) .then(async (result) => {
+        if (result && result.user) {
+          const user = result.user;
+          const storeData: User = {
+            uid: user.uid,
+            joinAt: Timestamp.now(),
+            name: user.displayName || "", 
+            role: "student",
+          };
+          const collect = collection(liteStore, "users");
+          await addDoc(collect, storeData);
+          setOk(true);
+          router.back();
+        }
+      })
+      .catch((error) => {
+        setError(true);
+        console.error(error);
+      });;
+  };
+
   return (
-    <main className="w-full sm:w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl space-y-1.5 flex flex-col gap-4  p-4 justify-self-center items-center overflow-y-auto bg-white shadow-md pb-7">
-      <div className={`' flex  mx-auto flex-col gap-2  `}>
+    <main
+      className={`w-full sm:w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl space-y-1.5 flex flex-col gap-4  p-4 justify-self-center items-center overflow-y-auto bg-white shadow-md pb-7 ${
+        isRight && "text-right"
+      }`}
+    >
+      <div
+        className={`' flex  mx-auto flex-col gap-2 ${isRight && "text-right"} `}
+      >
         <h3 className="header">{data.msg.title}</h3>
         <p className="para text-gray-600">{data.msg.message}</p>
+        <Link href={"/log-in"}>
+          <span className=" text-[rgba(38,61,161,0.84)] h-full w-full ">
+            {data.msg.login}
+          </span>
+        </Link>
+        {error && <p className="para text-destructive">{data.msg.error}</p>}
+        {ok && <p className="para text-green-800">{data.msg.ok}</p>}
       </div>
       <div className="flex flex-col gap-3">
-        <button className="  mx-auto  p-3 bg-green-800 text-white rounded-md hover:bg-green-950 active:scale-103 para flex gap-3 items-center " onClick={handleGoogleSignUp}>
+        <button
+          className="  mx-auto  p-3 bg-green-800 text-white rounded-md hover:bg-green-950 active:scale-103 para flex gap-3 items-center "
+          onClick={handleGoogleSignUp}
+        >
           {" "}
           <FaGoogle className="" /> <span>{data.google}</span>
         </button>
@@ -115,6 +183,7 @@ const Page = () => {
             name="name"
             onChange={form.handleChange}
             onBlur={form.handleBlur}
+            autoComplete="User-name"
             value={form.values.name}
             placeholder={data.name.value}
             className={` w-full focus-visible:ring-[3px] focus-visible:ring-green-800 focus-visible:border-green-800  ${
@@ -134,6 +203,7 @@ const Page = () => {
             name="email"
             onChange={form.handleChange}
             onBlur={form.handleBlur}
+            autoComplete="User-email"
             value={form.values.email}
             placeholder={data.email.value}
             className={` w-full focus-visible:ring-[3px] focus-visible:ring-green-800 focus-visible:border-green-800  ${
@@ -153,6 +223,7 @@ const Page = () => {
             name="password"
             onChange={form.handleChange}
             onBlur={form.handleBlur}
+            autoComplete="new-password"
             value={form.values.password}
             placeholder={data.password.value}
             className={` w-full focus-visible:ring-[3px] focus-visible:ring-green-800 focus-visible:border-green-800  ${
@@ -171,6 +242,7 @@ const Page = () => {
             name="rPassword"
             onChange={form.handleChange}
             onBlur={form.handleBlur}
+            autoComplete="new-password"
             value={form.values.rPassword}
             placeholder={data.rPassword.value}
             className={` w-full focus-visible:ring-[3px] focus-visible:ring-green-800 focus-visible:border-green-800  ${
