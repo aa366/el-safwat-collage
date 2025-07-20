@@ -1,14 +1,14 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import { createUserWithEmailAndPassword, getRedirectResult, signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, liteStore } from "@/firebase/config";
-import { collection, addDoc, Timestamp } from "firebase/firestore/lite";
+import {  Timestamp, doc, setDoc } from "firebase/firestore/lite";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaGoogle } from "react-icons/fa";
 import { User } from "@/app/interfaces";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Link from "next/link";
 import { GoogleAuthProvider } from "firebase/auth";
 
@@ -87,7 +87,7 @@ const Page = () => {
         .max(32, data.password.errors.max),
 
       rPassword: Yup.string()
-        .required(data.name.errors.required)
+        .required(data.rPassword.errors.required)
         .oneOf([Yup.ref("password")], data.rPassword.errors.typical),
     }),
     onSubmit: async (values) => {
@@ -96,7 +96,7 @@ const Page = () => {
           auth,
           values.email,
           values.password
-        ).then((userCredential) => {
+        ).then(async (userCredential) => {
           const user = userCredential.user;
 
           const storeData: User = {
@@ -106,12 +106,15 @@ const Page = () => {
             role: "student",
           };
 
-          const collect = collection(liteStore, "users");
-          addDoc(collect, storeData);
+          
+            const NewDoc = doc(liteStore , "users",user.uid)
+           await setDoc(NewDoc,storeData)
+         
           setOk(true);
+           router.back();
         });
 
-        router.back();
+       
       } catch (error) {
         setError(true);
         console.error(error);
@@ -132,8 +135,9 @@ const Page = () => {
             name: user.displayName || "", 
             role: "student",
           };
-          const collect = collection(liteStore, "users");
-          await addDoc(collect, storeData);
+          const NewDoc = doc(liteStore , "users",user.uid)
+           await  setDoc(NewDoc,storeData)
+         
           setOk(true);
           router.back();
         }

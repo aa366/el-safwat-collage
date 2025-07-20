@@ -1,12 +1,12 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup  } from "firebase/auth";
-import { auth, liteStore } from "@/firebase/config";
-import { collection, addDoc, Timestamp } from "firebase/firestore/lite";
+import { auth } from "@/firebase/config";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FaGoogle } from "react-icons/fa";
-import { User } from "@/app/interfaces";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
