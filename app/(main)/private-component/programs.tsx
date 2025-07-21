@@ -1,53 +1,17 @@
 import React from 'react'
 import Card from '@/components/elements/imgCard'
-
+import { getTranslations } from "next-intl/server";
 interface typeData{
     link: string;
     img: string;
     text: string;
    
 }
-const Programs = () => {
-    const title = "Academic Programs"
-    const sub = "The University Council, upon the recommendation of the College or Institute Council, awards the following degrees:"
-    const data:typeData[] = [
-        {
-            text:"University Diploma (Associate Degree)",
-            link:"/programs/university-diploma",
-            img:"/toWEBP/Diploma.jpg",
-
-        },
-        {
-            text:"Bachelor’s Degree (Higher Diploma)",
-            link:"/programs/bachelors-degree",
-            img:"/toWEBP/Bachelor’s.jpg",
-
-        },
-        {
-            text:"Postgraduate Diploma (Specialized Diploma)",
-            link:"/programs/postgraduate-diploma",
-            img:"/toWEBP/PostgraduateDiploma.jpg",
-
-        },
-        {
-            text:"Master’s Degree (Advanced Specialized Degree)",
-            link:"/programs/masters-degree",
-            img:"/toWEBP/Master.jpg",
-
-        },
-        {
-            text:"Doctorate Degree (Ph.D.)",
-            link:"/programs/doctorate-degree",
-            img:"/toWEBP/Doctorate.jpg",
-
-        },
-        {
-            text:"Continuing Education Programs",
-            link:"/programs/education",
-            img:"/toWEBP/Education.jpg",
-
-        },
-    ]
+const Programs = async () => {
+      const t = await getTranslations("pages.home.Programs")
+    const title = t.raw("title")
+    const sub = t.raw("sub")
+    const data = t.raw("data") as typeData[]
 
   return ( 
     <section className="font-medium flex flex-col gap-2  items-center">

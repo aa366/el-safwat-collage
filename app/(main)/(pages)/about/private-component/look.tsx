@@ -1,12 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
-
-const Look = () => {
+import { getTranslations } from "next-intl/server";
+const Look =async  () => {
+   const t = await getTranslations("pages.about.Look")
     const img = "/hall.jpg"
-    const title = "About University & colleges"
-    const para = "The colleges aims to be a pioneer in promoting employment opportunities and sustainable development, excelling in research and innovation by preparing qualified graduates to drive community development. It also offers training and continuing education services for its graduates and others to enhance their competencies and keep pace with scientific and practical advancements."
+
+    const title = t("title")
+    const para =t("para")
   return (
-    <section className='flex flex-col md:flex-row p-1 sm:p-4 gap-4 items-center bg-gray-300  '>
+    <section className='flex flex-col p-1 sm:p-4 gap-4 items-center bg-gray-300  '>
         <Image
         alt=''
         src={img}

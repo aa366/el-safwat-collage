@@ -4,39 +4,11 @@ import Image from 'next/image'
 import { FaPhone } from "react-icons/fa6";
 import { FaFacebookSquare,FaYoutube  } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-
-const Footer = () => {
-
-  const rights = " All rights reserved © 2025 Safwat Al-Safwa International University"
-  const data = [
-    {
-      title:"Rsources",
-      values: [
-        {name:"About us",link:"/about"},
-        {name:"Admission",link:"/admission"},
-        {name:"Research",link:"/research"},
-        {name:"E-Learning",link:"/e-learning"},
-      ]
-    },
-    {
-      title:"Main Faculties",
-      values: [
-        {name:"Faculty of Medicine",link:"/faculty/Medicine"},
-        {name:"Faculty of Dentistry",link:"/faculty/dentistry"},
-        {name:"Faculty of Medical Sciences",link:"/faculty/medical-sciences"},
-        {name:"Faculty of Engineering",link:"/faculty/engineering"},
-       
-      ]
-    },
-    {
-      title:"Institutes",
-      values: [
-        {name:"Arabic Language Institute",link:"/institute"},
-        {name:"Institute of Applied Sciences",link:"/institute"},
-       
-      ]
-    },
-  ]
+import { getTranslations } from "next-intl/server";
+const Footer = async () => {
+ const t = await getTranslations("statics.footer")
+  const rights =  t("rights")
+  const data =  t.raw("data")
   const img = "/logo.png"
   const tel = "+1 (646) 710-0836"
   const social = [

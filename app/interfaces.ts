@@ -1,5 +1,5 @@
 import { Timestamp } from "firebase/firestore/lite";
-
+import { getLocale } from "next-intl/server";
 export interface User{
     name:string;
     birthDate?:Timestamp;
@@ -17,4 +17,10 @@ export interface User{
     grade?:string;
     balance?:number
 
+}
+export const IsRight = async ()=>{
+  const arr = ["ar"]
+  const currentLang = await getLocale()
+ if( (arr.map((lang)=> lang === currentLang).includes(true))) return true
+ return false 
 }

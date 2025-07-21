@@ -5,18 +5,24 @@ import { FaUserGraduate } from "react-icons/fa6";
 import { GrGroup } from "react-icons/gr";
 import { PiGraduationCapFill } from "react-icons/pi";
 import { FaHandshake } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
 
-const Banner = () => {
-  const title = "safwat al-safwa international";
-  const cTitle = "university";
-  const p = "A Beacon for a Better Tomorrow";
+const Banner = async () => {
+   const t = await getTranslations("pages.home.banner")
+   
+  const title = t.raw("title");
+  const cTitle = t.raw("cTitle");
+  const p = t.raw("p");
+  const bar = t.raw("bar")
+
+  const src = "/banner.jpg"
 
   return (
     <div className="relative flex flex-col ">
         <div className="relative">
       <Image
         alt=""
-        src={`/banner.jpg`}
+        src={src}
         width={1000}
         height={900}
         className="min-h-[300px] w-full"
@@ -42,35 +48,35 @@ const Banner = () => {
            <LiaCalendar className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">5</h3>
-                <h5 className="text-xl">the year founded</h5>
+                <h5 className="text-xl">{bar.year}</h5>
             </div>
             </div>
         <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <FaUserGraduate className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">1000</h3>
-                <h5 className="text-xl">students 2024</h5>
+                <h5 className="text-xl">{bar.students}</h5>
             </div>
             </div>
         <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <GrGroup className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">300</h3>
-                <h5 className="text-xl">staff</h5>
+                <h5 className="text-xl">{bar.staff}</h5>
             </div>
             </div>
         <div className="flex  justify-center  items-center gap-1 lg:w-full">
            <PiGraduationCapFill className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">500</h3>
-                <h5 className="text-xl">alummi</h5>
+                <h5 className="text-xl">{bar.alummi}</h5>
             </div>
             </div>
         <div className="flex  justify-center items-center gap-1 lg:w-full">
            <FaHandshake className="text-5xl" />
             <div className="flex gap-2 self-center items-center ">
                 <h3 className="text-3xl">150</h3>
-                <h5 className="text-xl">partners</h5>
+                <h5 className="text-xl">{bar.partners}</h5>
             </div>
             </div>
 

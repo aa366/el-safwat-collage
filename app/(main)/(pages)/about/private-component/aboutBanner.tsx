@@ -1,12 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
-
-const AboutBanner = () => {
+import { getTranslations } from "next-intl/server";
+const AboutBanner = async  () => {
+     const t = await getTranslations("pages.about.AboutBanner")
     const img = "/hall.jpg"
-    const paras:string[] = [
-        "Safwat Al-Safwa International University is committed to delivering high-quality education across various disciplines. Our mission is to empower individuals through skill development, professional requalification, community engagement, and support for sustainable development. We adopt modern methodologies and tools to meet both local and international standards, keeping pace with the evolving world.",
-        "The university focuses on self-directed and collaborative learning, scientific research, training, and lifelong education for graduates and the wider community. Our goal is to enhance human competencies and minimize professional errors that may have serious consequences, ensuring our graduates meet global standards and contribute effectively to sustainable development."
-    ]
+    const paras:string[] = t.raw("paras")
   return (
     <section className='md:mx-[10%] relative mb-[5%]'> 
         <Image 

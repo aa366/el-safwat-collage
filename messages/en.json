@@ -1,6 +1,317 @@
 {
-    "nav":{
-        "item":"hello"
+    "statics":{
+        "nav":{
+            "ulItems" : [
+    {"name":"home","href":"home"},
+    {"name":"about","href":"about"},
+    {"name":"admission","href":"admission"},
+    {"name":"faculty","href":"faculty"},
+    {"name":"institutes","href":"institutes"},
+    {"name":"research","href":"research"},
+    {"name":"e-learning","href":"e-learning"},
+    {"name":"contact","href":"contact"}
+    
+  ],
+   "sections": [
+      {
+        "title": "Faculty",
+        "href": "",
+        "description":
+          "A modal dialog that interrupts the user with important content and expects a response."
+      },
+      {
+        "title": "Faculty of Medicine",
+        "href": "medicine",
+        "description":
+          "A modal dialog that interrupts the user with important content and expects a response."
+      },
+      {
+        "title": "Faculty of Medical Sciences",
+        "href": "medical-sciences",
+        "description":
+          "For sighted users to preview content available behind a link."
+      },
+      {
+        "title": "Faculty of Dentistry",
+        "href": "dentistry",
+        "description":
+          "For sighted users to preview content available behind a link."
+      },
+      {
+        "title": "Faculty of Engineering",
+        "href": "engineering",
+        "description":
+          "For sighted users to preview content available behind a link."
+      }
+    ]
+        },
+        "footer":{
+          "rights":" All rights reserved © 2025 Safwat Al-Safwa International University",
+  "data" : [
+    {
+      "title":"Rsources",
+      "values": [
+        {"name":"About us","link":"/about"},
+        {"name":"Admission","link":"/admission"},
+        {"name":"Research","link":"/research"},
+        {"name":"E-Learning","link":"/e-learning"}
+      ]
+    },
+    {
+      "title":"Main Faculties",
+      "values": [
+        {"name":"Faculty of Medicine","link":"/faculty/Medicine"},
+        {"name":"Faculty of Dentistry","link":"/faculty/dentistry"},
+        {"name":"Faculty of Medical Sciences","link":"/faculty/medical-sciences"},
+        {"name":"Faculty of Engineering","link":"/faculty/engineering"}
+       
+      ]
+    },
+    {
+      "title":"Institutes",
+      "values": [
+        {"name":"Arabic Language Institute","link":"/institute"},
+        {"name":"Institute of Applied Sciences","link":"/institute"}
+       
+      ]
+    }
+  ]
+
+        },
+        "signup":{
+
+        },
+        "login":{
+
+    }
+    },
+    "pages":{
+        "home":{
+              "admissionREQ":{
+                 "title" : "Admission",
+   "cTitle" : "Requirements",
+   "sub" :"To be admitted to Safwat Al-Safwa International University, applicants must:",
+   "data": [
+    {
+      "text": "Hold a valid secondary school certificate.",
+      "link": "/admission",
+      "img": "/toWEBP/Hold.jpg"
+    },
+    {
+      "text": "Pass the university's entrance exams.",
+      "link": "/admission",
+      "img": "/toWEBP/Pass.jpg"
+    },
+    {
+      "text": "Meet specific requirements set by the intended college.",
+      "link": "/admission",
+      "img": "/toWEBP/Meet.jpg"
+    },
+    {
+      "text": "Obtain official approval from the university administration.",
+      "link": "/admission",
+      "img": "/toWEBP/Obtain.jpg"
     }
 
+  ]
+            },
+            "banner":{
+                  "title": "safwat al-safwa international",
+   "cTitle": "university",
+   "p": "A Beacon for a Better Tomorrow",
+   "bar": {
+  "year" :  "the year founded",
+  "students" : "students 2024",
+  "staff":  "staff",
+  "alummi" : "alummi",
+  "partners" : "partners"
+
+  }
+            },
+            "Description":{
+                   "title" : "Safwat Al-Safwa International University",
+     "text" : [
+        "Committed to delivering high-quality education across various disciplines. Our mission is to empower individuals through skill development, professional requalification, community engagement, and support for sustainable development. We adopt modern methodologies and tools to meet both local and international standards, keeping pace with the evolving world.","The university focuses on self-directed and collaborative learning, scientific research, training, and lifelong education for graduates and the wider community. Our goal is to enhance human competencies and minimize professional errors that may have serious consequences, ensuring our graduates meet global standards and contribute effectively to sustainable development."
+    ]
+            },
+            "Goals":{
+                  "title" : "Our Goals",
+   "goals":  [
+    {
+      "name": "Semester-Based Academic System:",
+      "text": "A structured format that promotes consistent learning and evaluation."
+    },
+    {
+      "name": "custom",
+      "text": ""
+    },
+    {
+      "name": "University Requirements: ",
+      "text": " Life and work skills courses designed to prepare students for self-employment or career progression in public and private sectors."
+    },
+    {
+      "name": "College Requirements:",
+      "text": "Core academic courses necessary to complete a Bachelor’s Degree."
+    },
+    {
+      "name": "Course Integration: ",
+      "text": "Both horizontal and vertical alignment across courses to reinforce knowledge and skills."
+    }
+  ],
+   "custom" : {
+    "name" : " Diverse Degree Pathways:",
+    "text" : " Students can earn:",
+    "arr" : [
+      {"name":"  Bachelor’s Degree (Higher Diploma):","text":" Aligned with college-specific requirements."},
+      {"name":" Associate Degree (University Diploma):","text":" Based on university-wide competencies."}
+    ]
+  },
+   "subText" :
+  "To achieve its vision, the university follows a structured and progressive approach aimed at delivering high-quality education and empowering future leaders."
+            },
+            "Programs": {
+                   "title" : "Academic Programs",
+     "sub" : "The University Council, upon the recommendation of the College or Institute Council, awards the following degrees:",
+     "data":[
+        {
+            "text":"University Diploma (Associate Degree)",
+            "link":"/programs/university-diploma",
+            "img":"/toWEBP/Diploma.jpg"
+
+        },
+        {
+            "text":"Bachelor’s Degree (Higher Diploma)",
+            "link":"/programs/bachelors-degree",
+            "img":"/toWEBP/Bachelor’s.jpg"
+
+        },
+        {
+            "text":"Postgraduate Diploma (Specialized Diploma)",
+            "link":"/programs/postgraduate-diploma",
+            "img":"/toWEBP/PostgraduateDiploma.jpg"
+
+        },
+        {
+            "text":"Master’s Degree (Advanced Specialized Degree)",
+            "link":"/programs/masters-degree",
+            "img":"/toWEBP/Master.jpg"
+
+        },
+        {
+            "text":"Doctorate Degree (Ph.D.)",
+            "link":"/programs/doctorate-degree",
+            "img":"/toWEBP/Doctorate.jpg"
+        },
+        {
+            "text":"Continuing Education Programs",
+            "link":"/programs/education",
+            "img":"/toWEBP/Education.jpg"
+
+        }
+    ]
+            },"WhyStudy":{
+                 "title" : "Why Study at Safwat",
+   "cTitle": "Al-Safwa",
+   "subTitle" : "Key benefits of studying at our university include:",
+   "data" : [
+"Earning an accredited academic degree.",
+"Enhancing skills and competencies.",
+"Expanding job opportunities.",
+
+"Personal growth through critical and creative thinking.",
+    "Contributing to and serving the community."
+
+  ]
+            }
+        },
+        "about":{
+          "AboutBanner":{
+            "paras":[
+        "Safwat Al-Safwa International University is committed to delivering high-quality education across various disciplines. Our mission is to empower individuals through skill development, professional requalification, community engagement, and support for sustainable development. We adopt modern methodologies and tools to meet both local and international standards, keeping pace with the evolving world.",
+        "The university focuses on self-directed and collaborative learning, scientific research, training, and lifelong education for graduates and the wider community. Our goal is to enhance human competencies and minimize professional errors that may have serious consequences, ensuring our graduates meet global standards and contribute effectively to sustainable development."
+    ]
+          },
+          "Look":{
+            "title":"About University & colleges",
+            "para":"The colleges aims to be a pioneer in promoting employment opportunities and sustainable development, excelling in research and innovation by preparing qualified graduates to drive community development. It also offers training and continuing education services for its graduates and others to enhance their competencies and keep pace with scientific and practical advancements."
+          },
+          "Statstics":{
+          "partners" :  "partners",
+          "alummi" :  "alummi",
+          "staff" :  "staff",
+           "students" : "students 2024",
+           "year" : "the year founded"
+
+          },
+          "Us": {
+  "items": [
+    { "name": "Our Core Principles", "href": "Our Core Principles" },
+    { "name": "Our Core Values", "href": "Our Core Values" },
+    { "name": "Our Vision", "href": "Our Vision" },
+    { "name": "Our Mission", "href": "Our Mission" },
+    { "name": "Our Goals", "href": "Our Goals" }
+  ],
+  "values": [
+    {
+      "title": "Our Core Principles",
+      "href": "Our Core Principles",
+      "description": "At Safwat Al-Safwa International University, our mission is guided by a set of core principles that reflect our values, purpose, and unwavering commitment to academic and ethical excellence.",
+      "data": [
+        { "name": "Ethical Values", "text": "Upholding strong moral principles and integrity in all aspects of university life." },
+        { "name": "Human Dignity", "text": "Respecting the inherent worth of every individual in our community." },
+        { "name": "Self-Learning", "text": "Emphasizing self-directed study and collaborative educational approaches." },
+        { "name": "E-Learning", "text": "Promoting digital learning and distance education to expand access and flexibility." },
+        { "name": "Excellence in Education", "text": "Delivering top-quality academic programs and pioneering research to graduate competent, distinguished individuals." },
+        { "name": "Leadership Development", "text": "Building leadership, management, and communication skills for future leaders." },
+        { "name": "Lifelong Learning", "text": "Providing ongoing training for graduates and the broader community to keep pace with evolving knowledge and industry needs." },
+        { "name": "Privacy and Confidentiality", "text": "Safeguarding personal and institutional data with care and responsibility." },
+        { "name": "Academic Excellence", "text": "Ensuring high standards in both academic teaching and research outputs." },
+        { "name": "Intellectual Freedom", "text": "Encouraging critical thinking, creativity, and free academic exploration." },
+        { "name": "Community Empowerment", "text": "Preparing professionals who serve and uplift their communities." },
+        { "name": "Communication Skills", "text": "Enhancing writing, negotiation, and interpersonal abilities." },
+        { "name": "Innovation", "text": "Fostering innovation in learning, teaching, and problem-solving." }
+      ]
+    },
+    {
+      "title": "Our Core Values",
+      "href": "Our Core Values",
+      "description": "At Safwat Al-Safwa International University, our mission is grounded in a set of core values that reflect our deep commitment to faith, knowledge, ethics, and community service.",
+      "data": [
+        { "name": "Faith and Reliance", "text": "Faith in God and reliance on Him in all our actions and decisions." },
+        { "name": "Moral Conduct", "text": "Practicing good manners and upholding high moral values." },
+        { "name": "Human Rights", "text": "Respecting and protecting the rights and dignity of every individual." },
+        { "name": "Comprehensive Education", "text": "Providing distinguished and inclusive vocational education." },
+        { "name": "Excellence", "text": "Pursuing excellence in education, research, and service." },
+        { "name": "Scientific Engagement", "text": "Active involvement in basic sciences and meaningful research." }
+      ]
+    },
+    {
+      "title": "Our Vision",
+      "href": "Our Vision",
+      "description": "We envision a modern academic environment that leads in innovation, education, and sustainable development. At Safwat Al-Safwa International University, we are committed to becoming a global leader by pursuing the following goals:",
+      "data": [
+        { "name": "Accessible Education", "text": "Championing e-learning and distance education as inclusive tools for all learners." },
+        { "name": "Leadership Development", "text": "Becoming a hub for outcome-based learning to empower future local, regional, and global leaders." },
+        { "name": "Market-Driven Programs", "text": "Continuously upgrading academic programs to align with labor market demands." },
+        { "name": "Graduate Excellence", "text": "Producing highly qualified and competitive graduates equipped for success." },
+        { "name": "Innovative Curriculum", "text": "Developing advanced, forward-thinking educational programs." }
+      ]
+    },
+    {
+      "title": "Our Mission",
+      "href": "Our Mission",
+      "description": "Safwat Al-Safwa International University is dedicated to transforming lives through excellence in education, innovative research, and meaningful service. Our mission is to create impactful learning experiences and empower future generations by focusing on the following objectives:",
+      "data": [
+        { "name": "E-Learning Leadership", "text": "Advancing digital and distance education across all academic disciplines." },
+        { "name": "Modern Learning Models", "text": "Prioritizing self-directed and collaborative learning approaches." },
+        { "name": "Academic Excellence", "text": "Delivering distinguished, high-quality education and pioneering research." },
+        { "name": "Leadership Development", "text": "Strengthening leadership, administration, and strategic capabilities." },
+        { "name": "Lifelong Learning", "text": "Providing continuous development opportunities for graduates and adult learners." }
+      ]
+    },
+    { "custom": true, "title": "goals" }
+  ]
+}
+        }
+    }
 }

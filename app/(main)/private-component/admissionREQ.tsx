@@ -1,41 +1,22 @@
 import React from "react";
 import Card from "@/components/elements/imgCard";
+import { getTranslations } from "next-intl/server";
 
 interface typeData {
   link: string;
   img: string;
   text: string;
 }
-const Requirements = () => {
-  const title = "Admission";
-  const cTitle = "Requirements";
-  const sub ="To be admitted to Safwat Al-Safwa International University, applicants must:";
-  const data: typeData[] = [
-    {
-      text: "Hold a valid secondary school certificate.",
-      link: "/admission",
-      img: "/toWEBP/Hold.jpg",
-    },
-    {
-      text: "Pass the university's entrance exams.",
-      link: "/admission",
-      img: "/toWEBP/Pass.jpg",
-    },
-    {
-      text: "Meet specific requirements set by the intended college.",
-      link: "/admission",
-      img: "/toWEBP/Meet.jpg",
-    },
-    {
-      text: "Obtain official approval from the university administration.",
-      link: "/admission",
-      img: "/toWEBP/Obtain.jpg",
-    },
-
-  ];
+const Requirements = async () => {
+  const t = await getTranslations("pages.home.admissionREQ")
+ 
+  const title = t.raw("title");
+  const cTitle = t.raw("cTitle");
+  const sub  = t.raw("sub");
+  const data =  t.raw("data") as typeData[] 
 
   return (
-    <section className="font-medium flex flex-col gap-2  items-center">
+    <section className={`"font-medium flex flex-col gap-2  items-center `}>
       <div className=" flex flex-col gap-2  items-center px-8">
         <h3 className="header text-center   border-x-8 border-green-800   px-4">
           {title}

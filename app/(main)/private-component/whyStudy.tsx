@@ -1,19 +1,14 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
 
-const WhyStudy = () => {
-  const title = "Why Study at Safwat"
-  const cTitle= "Al-Safwa"
-  const subTitle = "Key benefits of studying at our university include:"
-  const data = [
-"Earning an accredited academic degree.",
-"Enhancing skills and competencies.",
-"Expanding job opportunities.",
+const WhyStudy = async () => {
+   const t = await getTranslations("pages.home.WhyStudy")
 
-"Personal growth through critical and creative thinking.",
-    "Contributing to and serving the community."
-
-  ]
+  const title = t.raw("title")
+  const cTitle= t.raw("cTitle")
+  const subTitle = t.raw("subTitle")
+  const data = t.raw("data") as string[]
 
 
  

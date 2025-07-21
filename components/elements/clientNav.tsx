@@ -16,19 +16,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { auth } from "@/firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
-
+import { useTranslations } from "next-intl";
 const ClientNav = () => {
+   const t =  useTranslations("statics.nav")
   const logo = "/logo.png";
-  const ulItems = [
-    "home",
-    "about",
-    "admission",
-    "faculty",
-    "institutes",
-    "research",
-    "e-learning",
-    "contact",
-  ];
+  const ulItems =  t.raw("ulItems")
   const path = usePathname();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,49 +33,18 @@ const ClientNav = () => {
   };
 
   // Faculty dropdown for desktop
-  const Faculty = ({ text }: { text: string }) => {
-    const sections: { title: string; href: string; description: string }[] = [
-      {
-        title: "Faculty",
-        href: "",
-        description:
-          "A modal dialog that interrupts the user with important content and expects a response.",
-      },
-      {
-        title: "Faculty of Medicine",
-        href: "medicine",
-        description:
-          "A modal dialog that interrupts the user with important content and expects a response.",
-      },
-      {
-        title: "Faculty of Medical Sciences",
-        href: "medical-sciences",
-        description:
-          "For sighted users to preview content available behind a link.",
-      },
-      {
-        title: "Faculty of Dentistry",
-        href: "dentistry",
-        description:
-          "For sighted users to preview content available behind a link.",
-      },
-      {
-        title: "Faculty of Engineering",
-        href: "engineering",
-        description:
-          "For sighted users to preview content available behind a link.",
-      },
-    ];
+  const Faculty = ({ text }: { text: {name:string ; href:string}  }) => {
+    const sections: { title: string; href: string; description: string }[] =  t.raw("sections")
     return (
       <li key={text + "rand"} className="">
         <NavigationMenu className="">
           <NavigationMenuItem className="">
             <NavigationMenuTrigger
               className={` hover:bg-inherit  bg-inherit text-lg md:text-sm  mdl:text-xl lg:text-[1.3rem] font-medium px-0 ${
-                isActive(text) ? "text-green-800 font-bold" : ""
+                isActive(text.href) ? "text-green-800 font-bold" : ""
               } hover:text-inherit`}
             >
-              {text}
+              {text.name}
             </NavigationMenuTrigger>
             <NavigationMenuContent className="w-fit ">
               <ul className="grid gap-2  w-fit whitespace-nowrap ">
@@ -157,16 +118,16 @@ const ClientNav = () => {
             <FaTimes />
           </button>
           <ul className="flex flex-col gap-6 mt-12 text-lg font-medium">
-            {ulItems.map((text) => (
-              <li key={text + "mobile"}>
+            {ulItems.map((text,index) => (
+              <li key={text.href + "mobile"+index}>
                 <Link
                   className={`capitalize block py-2 px-2 rounded transition-colors ${
-                    isActive(text) ? "text-green-800 font-bold" : ""
+                    isActive(text.href) ? "text-green-800 font-bold" : ""
                   }`}
-                  href={text === "home" ? `/` : `/${text}`}
+                  href={text.href === "home" ? `/` : `/${text.href}`}
                   onClick={() => setMenuOpen(false)}
                 >
-                  {text}
+                  {text.name}
                 </Link>
               </li>
             ))}
@@ -176,18 +137,18 @@ const ClientNav = () => {
 
       {/* Desktop menu */}
       <ul className="hidden md:flex w-auto gap-2 mdl:gap-3 text-lg md:text-sm mdl:text-xl lg:text-[1.3rem] items-center pr-3  font-medium ">
-        {ulItems.map((text) =>
-          text === "faculty" ? (
-            <Faculty key={text + "rand"} text={text} />
+        {ulItems.map((text,index) =>
+          text.href === "faculty" ? (
+            <Faculty key={text.href + "rand"+index} text={text} />
           ) : (
-            <li key={text + "rand"}>
+            <li key={text + "rand"+index}>
               <Link
                 className={`w-full h-full capitalize transition-colors ${
-                  isActive(text) ? "text-green-800 font-bold" : ""
+                  isActive(text.href) ? "text-green-800 font-bold" : ""
                 }`}
-                href={text === "home" ? `/` : `/${text}`}
+                href={text.href === "home" ? `/` : `/${text.href}`}
               >
-                {text}
+                {text.name}
               </Link>
             </li>
           )
@@ -198,6 +159,10 @@ const ClientNav = () => {
 };
 
 export const UserState = () => {
+  const authNames = {
+    Register :"Register",
+    Login :"Login"
+  }
   const [user,setUser] = useState<User | null>(null)
 
   useEffect(() => {
@@ -228,8 +193,8 @@ export const UserState = () => {
 
 return (
       <>
-        <button> <Link href={"/sign-up"} className="w-full h-full">  Register </Link></button>
-        <button className="border-x-1 border-gray-600 px-2"><Link href={"/log-in"} className="w-full h-full">  Login </Link></button>
+        <button> <Link href={"/sign-up"} className="w-full h-full">  {authNames.Register} </Link></button>
+        <button className="border-x-1 border-gray-600 px-2"><Link href={"/log-in"} className="w-full h-full">  {authNames.Login} </Link></button>
       </>
     );
 };

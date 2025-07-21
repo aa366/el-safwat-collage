@@ -1,5 +1,6 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale} from 'next-intl/server';
+import {getLangDir} from 'rtl-detect';
 import { Metadata } from 'next';
 
 import "./globals.css";
@@ -17,9 +18,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const direction = getLangDir(locale);
   return (
 
-    <html lang={locale}>
+    <html lang={locale}  dir={direction}>
       <body
         className={`bg-[rgba(0,0,0,.1)] `}
       >

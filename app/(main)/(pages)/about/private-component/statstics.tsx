@@ -5,37 +5,39 @@ import { FaHandshake, FaUserGraduate } from "react-icons/fa6";
 import { GrGroup } from "react-icons/gr";
 import { PiGraduationCapFill } from "react-icons/pi";
 import { IconType } from "react-icons";
-
+import { getTranslations } from "next-intl/server";
 interface NowObj {
   icon: IconType;
   num: number | string;
   text: string;
 }
-const Statstics = () => {
+const Statstics =async  () => {
+  const t = await getTranslations("pages.about.Statstics")
+
   const data: NowObj[] = [
     {
       icon: LiaCalendar,
-      text: "the year founded",
+      text:  t("year") ,
       num: 5,
     },
     {
       icon: FaUserGraduate,
-      text: "students 2024",
+      text:t("students")  ,
       num: "1000",
     },
     {
       icon: GrGroup,
-      text: "staff",
+      text:t("staff")  ,
       num: "300",
     },
     {
       icon: PiGraduationCapFill,
-      text: "alummi",
+      text:t("alummi")  ,
       num: "500",
     },
     {
       icon: FaHandshake,
-      text: "partners",
+      text:t("partners")  ,
       num: "150",
     },
   ];
