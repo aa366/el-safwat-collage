@@ -3,38 +3,51 @@ import { FaMapMarked } from "react-icons/fa";
 import { MdContacts } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
-const Page = () => {
-  const data = {
+import { IconType } from "react-icons";
+import { getTranslations } from "next-intl/server";
+interface DataShape{
+  
+    values: {
+        icon: IconType;
+        title: string;
+        color: {
+            text: string;
+            border: string;
+        };
+        items: string[];
+    }[];
+
+}
+const Page = async () => {
+   const t = await getTranslations("pages.contact")
+   
+   
+  const data:DataShape = {
     values: [
       {
         icon: FaMapMarked,
-        title: "Address way",
         color:{
             text:"text-blue-800",
             border:"hover:border-blue-800"
         },
-        items: [""],
+       ... t.raw("address")
+      
       },
       {
         icon: MdContacts,
-        title: "Contact info",
-          color:{
-            text:"text-green-800",
-            border:"hover:border-green-800"
-        },
-        items: ["Mobile: +1 (646) 710-0836", "Mail: saalsa123456@gmail.com"],
+        color:{
+          text:"text-green-800",
+          border:"hover:border-green-800"
+      },
+         ... t.raw("contactinfo")
       },
       {
         icon: FaRegClock,
-        title: "Work timer",
-          color:{
-            text:"text-yellow-800",
-            border:"hover:border-yellow-800"
-        },
-        items: [
-          "Monday - Friday: 09:00 - 20:00",
-          "Sunday & Saturday: 10:30 - 22:0",
-        ],
+        color:{
+          text:"text-yellow-800",
+          border:"hover:border-yellow-800"
+      },
+       ... t.raw("worktime")
       },
     ],
   };

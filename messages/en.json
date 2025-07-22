@@ -312,6 +312,80 @@
     { "custom": true, "title": "goals" }
   ]
 }
-        }
+        },
+        "admission":{
+          "Benefits":{
+              "title": "Benefits of Studying at the",
+    "ctitle": "University",
+    "para": "At Safwat Al-Safwa International University, students gain more than just academic knowledge—they experience personal and professional growth that prepares them for success in a rapidly evolving world. By joining our academic community, students benefit from:",
+    "values": [
+      {
+        "ques": "Earning an internationally recognized academic degree",
+        "ans": "Open doors to global opportunities with qualifications respected by institutions and employers worldwide.",
+        "open": true
+      },
+      {
+        "ques": "Developing essential skills and competencies",
+        "ans": "Gain practical, in-demand skills that empower you to excel in your chosen field."
+      },
+      {
+        "ques": "Access to better job opportunities",
+        "ans": "Increase your employability and access a wider range of career opportunities."
+      },
+      {
+        "ques": "Enhancing personal growth through critical and creative thinking",
+        "ans": "Sharpen your critical thinking, creativity, and problem-solving abilities in an environment that encourages innovation.",
+        "open": true
+      },
+      {
+        "ques": "Contributing to community development",
+        "ans": "Become an active contributor to society through knowledge, service, and leadership."
+      }
+    ]
+          },
+          "Programs":{
+              "data" : [
+        {"title":"Academic Programs","para":"Safwat Al-Safwa International University grants academic degrees upon the recommendation of the College or Institute Council and the approval of the University Council. The following degrees are awarded:","values":[
+"Ijaza Degree (Diploma)",
+"Higher Ijaza Degree (Bachelor’s Degree)",
+"Specialization Degree (Higher Diploma)",
+"Advanced Specialization Degree (Master’s Degree)",
+"Al-Alamiyya Degree (Doctorate)",
+"Continuing Education Programs"
+
+            
+        ]},
+        {"title":"Admission Requirements","para":"To be eligible for admission to Safwat Al-Safwa International University, applicants must meet the following requirements:","values":[
+            "Hold a high school diploma or its equivalent.",
+            "Pass the university’s entrance examinations.",
+            "Fulfill the specific admission requirements of the desired college.",
+            "Obtain official approval from the university."
+        ]}
+       
+    ]
+          }
+        
+         
+        },
+          "contact":{
+            "address":{
+               "title": "Address way",
+                "items": [""]
+              },
+ "contactinfo":{
+             "title": "Contact info",
+        "items": ["Mobile: +1 (646) 710-0836", "Mail: saalsa123456@gmail.com"]
+          },
+          "worktime":{
+  "title": "WorkTimer",
+        "items": [
+          "Monday - Friday: 09:00 - 20:00",
+          "Sunday & Saturday: 10:30 - 22:0"
+        ]
+          }
+
+
+
+          }
     }
 }

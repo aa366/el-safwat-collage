@@ -1,5 +1,5 @@
 import React from "react";
-
+import { getTranslations } from "next-intl/server";
 import {
   Accordion,
   AccordionContent,
@@ -8,35 +8,13 @@ import {
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { Plus } from "lucide-react";
 
-const Benefits = () => {
+const Benefits = async () => {
+   const t = await getTranslations("pages.admission.Benefits")
   const data = {
-    title: "Benefits of Studying at the",
-    ctitle: "University",
-    para: "At Safwat Al-Safwa International University, students gain more than just academic knowledge—they experience personal and professional growth that prepares them for success in a rapidly evolving world. By joining our academic community, students benefit from:",
-    values: [
-      {
-        ques: "Earning an internationally recognized academic degree",
-        ans: "Open doors to global opportunities with qualifications respected by institutions and employers worldwide.",
-        open: true,
-      },
-      {
-        ques: "Developing essential skills and competencies",
-        ans: "Gain practical, in-demand skills that empower you to excel in your chosen field.",
-      },
-      {
-        ques: "Access to better job opportunities",
-        ans: "Increase your employability and access a wider range of career opportunities.",
-      },
-      {
-        ques: "Enhancing personal growth through critical and creative thinking",
-        ans: "Sharpen your critical thinking, creativity, and problem-solving abilities in an environment that encourages innovation.",
-        open: true,
-      },
-      {
-        ques: "Contributing to community development",
-        ans: "Become an active contributor to society through knowledge, service, and leadership.",
-      },
-    ],
+    title: t.raw("title"),
+    ctitle: t.raw("ctitle"),
+    para: t.raw("para"),
+    values:t.raw("values")
   };
   return (
     <section className="font-medium p-4 flex flex-col gap-4">
