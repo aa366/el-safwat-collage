@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
-
-const Gallary = () => {
+import { getTranslations } from "next-intl/server";
+const Gallary = async () => {
+    const t = await getTranslations("pages.research.Gallary")
     const data = {
-        title:"Student Research Activities at Eduma University",
+        title:t("title"),
         values:[
             "/research/reseach-gallery-6.webp",
             "/research/reseach-gallery-7.webp",

@@ -5,56 +5,23 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { getTranslations } from "next-intl/server";
 
-const Asks = () => {
-  const data = {
-    title: "",
-    values: [
-      {
-        faculty: "Faculty of Medicine",
-        pre: "Medical students study college-required courses for a Bachelor of Medicine degree and university-required courses for an Associate's degree. The college focuses on:",
-        aft: "",
-        items: [
-          "",
-          "Medical ethics, patient rights, and disease prevention",
-          "Patient care and healthcare delivery methods",
-          "Chemical and biological processes in living organisms",
-          "Disease diagnosis and treatment",
-          "Medical confidentiality, data analysis, and clinical trials",
-          "Scientific research in medicine",
-          "Commitment to excellence, patient well-being, and community health needs",
-          "Promoting research and global community engagement",
-          "Respect for human rights",
-        ],
-      },
-      {
-        faculty: "Faculty of Dentistry",
-        pre: "Students study college-required courses for a bachelor's degree and university-required courses for an associate's degree. The college emphasizes:",
-        aft: "",
-        items: [
-          "",
-          " Medical ethics, patient rights, and disease prevention",
-          "Patient care, healthcare delivery, and biological chemistry",
-          "Dental structure and functions, microorganisms in the mouth",
-          "Diagnosis, treatment of dental and periodontal diseases",
-          "Dental surgery, orthodontics, and clinical diagnostics",
-          "Scientific research, clinical trials, and data analysis in dentistry",
-          "Collaboration, community engagement, and human rights",
-        ],
-      },
-      {
-        faculty: "Faculty of Medical Sciences",
-        pre: "",
-        aft: "The faculty focuses on practical training, scientific research, and community service.",
-        items: [
-          "",
-          "Nursing: Training in various nursing disciplines",
-          "Medical Laboratories: Expertise in lab sciences",
-          "Radiology: Producing qualified radiologists",
-          "Physiotherapy: Preparing skilled physiotherapy professionals",
-        ],
-      },
-    ],
+interface Shape{
+    title: string;
+    values: {
+        faculty: string;
+        pre: string;
+        aft: string;
+        items: string[];
+    }[];
+}
+
+const Asks = async () => {
+   const t = await getTranslations("pages.faculty.Asks")
+  const data:Shape = {
+    title: t("title"),
+    values: t.raw("values")
   };
   return (
     <Accordion type="multiple" className="w-full  grid grid-cols-1 md:w-[80%] mx-auto p-2 gap-2 gap-x-4">

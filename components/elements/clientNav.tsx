@@ -16,7 +16,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { auth } from "@/firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+
+
+
 const ClientNav = () => {
    const t =  useTranslations("statics.nav")
   const logo = "/logo.png";
@@ -198,5 +202,32 @@ return (
       </>
     );
 };
+export const LangSwitcher = ()=>{
+  const currentLang = useLocale()
+  const router = useRouter()
+  const langs = ["ar","en"]
+
+
+
+  const handleChange =async  (item:string)=>{
+    document.cookie = `NEXT_LOCALE=${item}; path=/`;
+    router.refresh();
+
+  }
+return (
+  <select name="language switcher" id="languages" value={currentLang} onChange={(e)=>handleChange(e.target.value)}      className="ml-2 border rounded px-2 py-1"
+>
+
+    {langs.map((ele)=>{
+      return(
+        <option value={ele} key={ele+" language"}>{ele}</option>
+      )
+    })}
+  
+
+  </select>
+   
+)
+}
 
 export default ClientNav;

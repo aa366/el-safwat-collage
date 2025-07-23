@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
-import ClientNav, { UserState } from "./elements/clientNav";
-
+import ClientNav, { LangSwitcher, UserState } from "./elements/clientNav";
+ 
 
 const NavBar = () => {
   const tel = "+1 (646) 710-0836";
@@ -26,7 +26,8 @@ const NavBar = () => {
 
         <div className="text-black flex gap-2">
          <UserState />
-          <button>en</button>
+         <LangSwitcher />
+         
         </div>
       </div>
 

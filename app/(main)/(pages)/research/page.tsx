@@ -3,11 +3,12 @@ import React from 'react'
 import Cards from './private-component/cards'
 import Gallary from './private-component/gallary'
 import Achievements from './private-component/achievements'
-
-const Page = () => {
+import { getTranslations } from "next-intl/server";
+const Page = async () => {
+      const t = await getTranslations("pages.research.main")
     const data = {
         img:"/research/banner-reseach.webp",
-        text:"Our alumni have a history of shared experiences and memories, understood by those who studied before them, those who studied with them and those who will soon join the alumni community."
+        text:t("text")
     }
     const {img,text} = data
   return (

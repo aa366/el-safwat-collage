@@ -1,24 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const Achievements = () => {
-    const data = {
-        title:"Research achievement awards",
-        values:[
-            {img:"/research/research-box3.webp",
-                title:"Mid-Career Research Scholar Award",
-                para:"This award recognizes a general faculty member with a minimum of three years at EDUMA University and holding...",
-                link:"/research/mid-career-research",
-                linkName:""
-            },
-            {img:"/research/research-box2.webp",
-                title:"Mid-Career Research Scholar Award",
-                para:"This award recognizes a general faculty member with a minimum of three years at EDUMA University and holding...",
-                link:"/research/mid-career-research",
-                linkName:""
-            },
-        ]
+import { getTranslations } from "next-intl/server";
+interface DataShape {
+    title: string;
+    values: {
+        img: string;
+        title: string;
+        para: string;
+        link: string;
+        linkName: string;
+    }[];
+}
+const Achievements =async () => {
+     const t = await getTranslations("pages.research.Achievements")
+    const data:DataShape = {
+        title:t.raw("title"),
+        values:t.raw("values")
     }
   return (
     <section className='flex flex-col md:flex-row gap-4 p-4 md:px-[20%]'>

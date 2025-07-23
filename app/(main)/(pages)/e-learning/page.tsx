@@ -1,43 +1,28 @@
 import React from 'react'
-
-const Page = () => {
-    const data = {
-        title:"E-Learning at Our University",
-        box1:{
-            title:"Key Benefits of E-Learning",
-            values:[
-            "Eliminates the need for traditional classrooms, allowing more flexibility and greater student capacity.",
-"Reduces the overall cost of education.",
-"Saves time and extends the student’s effective learning span.",
-"Enhances education through interactive, self-paced, and collaborative learning, fostering engagement between students and instructors, as well as among peers.",
-"Allows students to review lessons at any time, replay sessions, and benefit from explanations by multiple instructors, which improves comprehension and performance.",
-"Encourages global exposure and interaction with students from various countries, promoting cross-cultural learning.",
-"Improves job opportunities and supports career advancement through flexible access to education. ",       
-            ]
-        },
-        box2:{
-            title:"Types of E-Learning",
-            values:[
-                {head:"Synchronous Learning",
-                    para:"This involves live sessions delivered through virtual classrooms over the internet. Students and instructors are online at the same time, allowing for real-time interaction and discussion.",
-                    word:"Advantages:",
-                    items:[
-                        "No need to commute to campus, saving time and lowering costs.",
-"Real-time engagement with instructors and classmates.",
-                    ]
-
-                },
-                {head:"Asynchronous Learning",
-                    para:"In this format, lessons are pre-recorded, allowing students to access them at their convenience. Students can send questions to instructors and participate in discussions at their own pace.",
-                    word:"Advantages:",
-                    items:[
-                        "Flexible access to course content anytime, anywhere.",
-"Students can revisit and review materials as needed, enhancing long-term understanding.",
-                    ]
-
-                },
-            ]
-        }
+import { getTranslations } from "next-intl/server";
+interface DataShape {
+    title: string;
+    box1: {
+        title: string;
+        values: string[];
+    };
+    box2: {
+        title: string;
+        values: {
+            head: string;
+            para: string;
+            word: string;
+            items: string[];
+        }[];
+    };
+}
+const Page =async () => {
+      const t = await getTranslations("pages.eLearning")
+    //   t.raw("data")
+    const data:DataShape = {
+        title:t.raw("title"),
+        box1:t.raw("box1"),
+        box2:t.raw("box2")
 
     }
   return (

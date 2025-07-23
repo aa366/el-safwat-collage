@@ -1,16 +1,20 @@
 import React from 'react'
+import { getTranslations } from "next-intl/server";
 
-const Page = () => {
-    const data = {
-        title:"University Institutes",
-        values:[
-            {title:"Arabic Language Institute",
-                text:"The Arabic Language Institute is dedicated to teaching Arabic to non-native speakers through a comprehensive and immersive curriculum. The institute focuses on developing students' reading, writing, speaking, and listening skills, while also introducing them to Arab culture and traditions. With qualified instructors and modern teaching methods, the institute provides a supportive environment for learners at all levels."
-            },
-            {title:"Institute of Applied Sciences",
-                text:"The Institute of Applied Sciences offers specialized programs that combine theoretical knowledge with hands-on practical experience in various scientific and technical fields. The institute is committed to preparing students for careers in industries such as technology, engineering, health sciences, and environmental studies. Through state-of-the-art laboratories and experienced faculty, students gain the skills needed to meet real-world challenges."
-            },
-        ]
+interface Shape{
+    
+    title: string;
+    values: {
+        title: string;
+        text: string;
+    }[];
+
+}
+const Page = async () => {
+      const t = await getTranslations("pages.institutes")
+    const data:Shape = {
+        title:t("title"),
+        values:t.raw("values")
     }
   return (
     <main className=''>
