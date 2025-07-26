@@ -10,21 +10,28 @@ import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
-  // NavigationMenuList,
   NavigationMenuTrigger,
-  // navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { auth } from "@/firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
-
+// Types for navigation items and sections
+type NavItem = {
+  name: string;
+  href: string;
+};
+type Section = {
+  title: string;
+  href: string;
+  description: string;
+};
 
 const ClientNav = () => {
-   const t =  useTranslations("statics.nav")
+  const t = useTranslations("statics.nav");
   const logo = "/logo.png";
-  const ulItems =  t.raw("ulItems")
+  const ulItems = t.raw("ulItems") as NavItem[];
   const path = usePathname();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,10 +44,10 @@ const ClientNav = () => {
   };
 
   // Faculty dropdown for desktop
-  const Faculty = ({ text }: { text: {name:string ; href:string}  }) => {
-    const sections: { title: string; href: string; description: string }[] =  t.raw("sections")
+  const Faculty = ({ text }: { text: NavItem }) => {
+    const sections = t.raw("sections") as Section[];
     return (
-      <li key={text + "rand"} className="">
+      <li key={text.href + "rand"} className="">
         <NavigationMenu className="">
           <NavigationMenuItem className="">
             <NavigationMenuTrigger
@@ -73,8 +80,6 @@ const ClientNav = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenu>
-
-       
       </li>
     );
   };
@@ -122,8 +127,8 @@ const ClientNav = () => {
             <FaTimes />
           </button>
           <ul className="flex flex-col gap-6 mt-12 text-lg font-medium">
-            {ulItems.map((text,index) => (
-              <li key={text.href + "mobile"+index}>
+            {ulItems.map((text, index) => (
+              <li key={text.href + "mobile" + index}>
                 <Link
                   className={`capitalize block py-2 px-2 rounded transition-colors ${
                     isActive(text.href) ? "text-green-800 font-bold" : ""
@@ -141,11 +146,11 @@ const ClientNav = () => {
 
       {/* Desktop menu */}
       <ul className="hidden md:flex w-auto gap-2 mdl:gap-3 text-lg md:text-sm mdl:text-xl lg:text-[1.3rem] items-center pr-3  font-medium ">
-        {ulItems.map((text,index) =>
+        {ulItems.map((text, index) =>
           text.href === "faculty" ? (
-            <Faculty key={text.href + "rand"+index} text={text} />
+            <Faculty key={text.href + "rand" + index} text={text} />
           ) : (
-            <li key={text + "rand"+index}>
+            <li key={text.href + "rand" + index}>
               <Link
                 className={`w-full h-full capitalize transition-colors ${
                   isActive(text.href) ? "text-green-800 font-bold" : ""
@@ -164,70 +169,73 @@ const ClientNav = () => {
 
 export const UserState = () => {
   const authNames = {
-    Register :"Register",
-    Login :"Login"
-  }
-  const [user,setUser] = useState<User | null>(null)
+    Register: "Register",
+    Login: "Login",
+  };
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const unsubscribe  =  onAuthStateChanged(auth, (currentUser) => {
-      
-      
-      setUser(currentUser)
-      
-    
-  });
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
     return () => unsubscribe();
   }, []);
-  
 
-   if (user) {
-      return (
-        <Link href={`/profile/${user.uid}`}>
-          <Image
-            alt="Profile"
-            src={user.photoURL ?? "/default-user.svg"}
-            width={30}
-            height={30}
-            className="w-[3vw] min-w-10 md:min-w-8 rounded-full bg-none text-black border-2 border-green-800 p-1"
-          />
-        </Link>
-      );
-    }
-
-return (
-      <>
-        <button> <Link href={"/sign-up"} className="w-full h-full">  {authNames.Register} </Link></button>
-        <button className="border-x-1 border-gray-600 px-2"><Link href={"/log-in"} className="w-full h-full">  {authNames.Login} </Link></button>
-      </>
+  if (user) {
+    return (
+      <Link href={`/profile/${user.uid}`}>
+        <Image
+          alt="Profile"
+          src={user.photoURL ?? "/default-user.svg"}
+          width={30}
+          height={30}
+          className="w-[3vw] min-w-10 md:min-w-8 rounded-full bg-none text-black border-2 border-green-800 p-1"
+        />
+      </Link>
     );
+  }
+
+  return (
+    <>
+      <button>
+        <Link href={"/sign-up"} className="w-full h-full">
+          {authNames.Register}
+        </Link>
+      </button>
+      <button className="border-x-1 border-gray-600 px-2">
+        <Link href={"/log-in"} className="w-full h-full">
+          {authNames.Login}
+        </Link>
+      </button>
+    </>
+  );
 };
-export const LangSwitcher = ()=>{
-  const currentLang = useLocale()
-  const router = useRouter()
-  const langs = ["ar","en"]
 
+export const LangSwitcher = () => {
+  const currentLang = useLocale();
+  const router = useRouter();
+  const langs = ["ar", "en"];
 
-
-  const handleChange =async  (item:string)=>{
+  const handleChange = (item: string) => {
     document.cookie = `NEXT_LOCALE=${item}; path=/`;
     router.refresh();
+  };
 
-  }
-return (
-  <select name="language switcher" id="languages" value={currentLang} onChange={(e)=>handleChange(e.target.value)}      className="ml-2 border rounded px-2 py-1"
->
-
-    {langs.map((ele)=>{
-      return(
-        <option value={ele} key={ele+" language"}>{ele}</option>
-      )
-    })}
-  
-
-  </select>
-   
-)
-}
+  return (
+    <select
+      name="language switcher"
+      id="languages"
+      value={currentLang}
+      onChange={(e) => handleChange(e.target.value)}
+      className="ml-2 border rounded px-2 py-1"
+    >
+      {langs.map((ele) => (
+        <option value={ele} key={ele + " language"}>
+          {ele}
+        </option>
+      ))}
+    </select>
+  );
+};
 
 export default ClientNav;

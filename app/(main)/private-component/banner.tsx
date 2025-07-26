@@ -15,7 +15,7 @@ const Banner = async () => {
   const p = t.raw("p");
   const bar = t.raw("bar")
 
-  const src = "/banner.jpg"
+  const src = "/building.jpg"
 
   return (
     <div className="relative flex flex-col ">

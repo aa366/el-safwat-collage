@@ -1,23 +1,4 @@
-/college-website/
-├── public/
-│   └── index.html
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   └── Navbar.jsx
-│   ├── context/
-│   │   └── AuthContext.jsx
-│   ├── i18n/
-│   │   └── index.js
-│   ├── pages/
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   ├── Home.jsx
-│   │   ├── Faculties.jsx
-│   │   ├── Departments.jsx
-│   │   └── Courses.jsx
-│   ├── App.jsx
-│   └── main.jsx
-├── .env
-├── tailwind.config.js
-├── package.json
+admin dashboard
+profile page 
+edit ui
+edit translations

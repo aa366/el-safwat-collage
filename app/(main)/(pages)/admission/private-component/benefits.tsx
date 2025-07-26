@@ -8,14 +8,28 @@ import {
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { Plus } from "lucide-react";
 
+// Define types for translation data
+type BenefitValue = {
+  ques: string;
+  ans: string;
+};
+
+type BenefitsData = {
+  title: string;
+  ctitle: string;
+  para: string;
+  values: BenefitValue[];
+};
+
 const Benefits = async () => {
-   const t = await getTranslations("pages.admission.Benefits")
-  const data = {
-    title: t.raw("title"),
-    ctitle: t.raw("ctitle"),
-    para: t.raw("para"),
-    values:t.raw("values")
+  const t = await getTranslations("pages.admission.Benefits");
+  const data: BenefitsData = {
+    title: t.raw("title") as string,
+    ctitle: t.raw("ctitle") as string,
+    para: t.raw("para") as string,
+    values: t.raw("values") as BenefitValue[],
   };
+
   return (
     <section className="font-medium p-4 flex flex-col gap-4">
       <h3 className="header">

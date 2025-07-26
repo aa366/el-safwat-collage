@@ -577,13 +577,13 @@
       "Achievements":{
           "title":"Research achievement awards",
         "values":[
-            {"img":"/research/research-box3.webp",
+            {"img":"/research/research-box3.jpg",
                 "title":"Mid-Career Research Scholar Award",
                 "para":"This award recognizes a general faculty member with a minimum of three years at EDUMA University and holding...",
                 "link":"/research/mid-career-research",
                 "linkName":""
             },
-            {"img":"/research/research-box2.webp",
+            {"img":"/research/research-box2.jpg",
                 "title":"Mid-Career Research Scholar Award",
                 "para":"This award recognizes a general faculty member with a minimum of three years at EDUMA University and holding...",
                 "link":"/research/mid-career-research",
