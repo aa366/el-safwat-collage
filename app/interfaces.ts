@@ -15,7 +15,10 @@ export interface User{
     bio?:string;
     profileURL?:string;
     grade?:string;
-    balance?:number
+    arabicName?:string;
+    email?:string;
+    emailVerified?:boolean;
+    balance?:number;
 
 }
 export const IsRight = async ()=>{

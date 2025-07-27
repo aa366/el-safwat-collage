@@ -65,10 +65,11 @@ const Nav = () => {
         {isModerator && moderatorItems.map((ele)=>{
           const link = `/profile/${slug}` +ele.href
           return(
-            <Link href={link} key={ele.href + "seconed Nav"}  className={`p-1 md:p-3 capitalize border-4 border-gray-500 font-medium rounded-md w-fit ${isActive(ele.href) && "bg-green-800 text-white para"}` }>
-         
-              {ele.name}
+            <Link href={link} key={ele.href + "seconed Nav"} >
 
+              <div  className={`p-1 md:p-3 capitalize border-4 border-gray-500 font-medium rounded-md w-fit ${isActive(ele.href) && "bg-green-800 text-white para"}` }>
+              {ele.name}
+  </div>
            
             </Link>
           )

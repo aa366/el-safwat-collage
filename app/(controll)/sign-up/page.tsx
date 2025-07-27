@@ -104,6 +104,8 @@ const Page = () => {
             joinAt: Timestamp.now(),
             name: values.name,
             role: "student",
+            email:user.email,
+            emailVerified:user.emailVerified
           };
 
           
@@ -134,6 +136,9 @@ const Page = () => {
             joinAt: Timestamp.now(),
             name: user.displayName || "", 
             role: "student",
+            profileURL:user.photoURL,
+            email:user.email,
+            emailVerified:user.emailVerified
           };
           const NewDoc = doc(liteStore , "users",user.uid)
            await  setDoc(NewDoc,storeData)
