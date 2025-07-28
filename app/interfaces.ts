@@ -6,10 +6,11 @@ export interface User{
     joinAt:Timestamp ;
     role:"student" | "teacher"|"moderator" |"admin" |"member"
     courses?:{
-      paid?:{date:Timestamp;id:string;}[],
-      published?:{date:Timestamp;id:string;}[],
-      favorite?:{date:Timestamp;id:string;}[],
+      paid?:{date:Timestamp;id:string;imgUrl:string;title:string;describe:string;}[],
+      published?:{date:Timestamp;id:string;imgUrl:string;title:string;describe:string;}[],
+      favorite?:{date:Timestamp;id:string;imgUrl:string;title:string;describe:string;}[],
     };
+    requests: {from:string;to:string;msgType:"ChangeRole"|"AddRelation"|"changeGrade";msg?:string}[]
     uid:string;
     relations?:{Type:"student"|"teacher"|"moderator";uid:string}[];
     bio?:string;
