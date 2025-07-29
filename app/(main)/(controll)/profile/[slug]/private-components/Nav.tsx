@@ -20,7 +20,7 @@ const Nav = () => {
 
     const moderatorItems = [
       {name:"site Structure",href:"/structure"},
-      {name:"requests",href:"/requests"},
+     
     ] 
     
     const items = [

@@ -230,7 +230,7 @@ export const LangSwitcher = () => {
       className="ml-2 border rounded px-2 py-1"
     >
       {langs.map((ele) => (
-        <option value={ele} key={ele + " language"}>
+        <option value={ele == "en"?"en":ele} key={ele + " language"}>
           {ele}
         </option>
       ))}

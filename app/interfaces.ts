@@ -10,16 +10,14 @@ export interface User{
       published?:{date:Timestamp;id:string;imgUrl:string;title:string;describe:string;}[],
       favorite?:{date:Timestamp;id:string;imgUrl:string;title:string;describe:string;}[],
     };
-    requests: {from:string;to:string;msgType:"ChangeRole"|"AddRelation"|"changeGrade";msg?:string}[]
-    uid:string;
-    relations?:{Type:"student"|"teacher"|"moderator";uid:string}[];
+    
     bio?:string;
     profileURL?:string;
     grade?:string;
     arabicName?:string;
     email?:string;
     emailVerified?:boolean;
-    balance?:number;
+  
 
 }
 export const IsRight = async ()=>{
